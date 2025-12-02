@@ -1,18 +1,18 @@
-const formHtml = document.querySelector("form");
-const paraHtml = document.querySelector("#message");
+async function getWeather() {
+    try {
+        const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=56.05&longitude=12.70&current_weather=true");
 
-formHtml.addEventListener("submit", (e) => {
-    e.preventDefault();
+        const data = await response.json();
 
-    const nameValue = document.querySelector("#name").value.trim();
-    const emailValue = document.querySelector("#email").value.trim();
+        const temp = data.current_weather.temperature;
+        document.body.innerHTML += `<p>Temp: ${temp}</p>`
 
-    if (nameValue !== "" && emailValue !== "") {
-        paraHtml.textContent = "Tack för din registrering!";
-        paraHtml.style.color = "green";
-    } else {
-        paraHtml.textContent = "Båda fälten måste fyllas i!";
-        paraHtml.style.color = "red";
+        console.log(data);
+    } catch(error) {
+        document.body.innerHTML += `<p>Något gick fel: ${error.message}</p>`
+        console.error(error);
     }
 
-})
+}
+
+window.addEventListener("load", getWeather);
