@@ -1,24 +1,18 @@
-const nameHtml = document.querySelector("#name");
-const passwordHtml = document.querySelector("#password");
-const formHtml = document.querySelector("#loginForm");
-const resultHtml = document.querySelector("#result");
+const formHtml = document.querySelector("form");
+const paraHtml = document.querySelector("#message");
 
 formHtml.addEventListener("submit", (e) => {
     e.preventDefault();
-    
 
-    const userName = nameHtml.value.trim();
-    const password = passwordHtml.value.trim();
+    const nameValue = document.querySelector("#name").value.trim();
+    const emailValue = document.querySelector("#email").value.trim();
 
-    if (userName !== "" && password !== "") {
-        resultHtml.textContent = "Inloggningen lyckades!";
-    
+    if (nameValue !== "" && emailValue !== "") {
+        paraHtml.textContent = "Tack för din registrering!";
+        paraHtml.style.color = "green";
     } else {
-        setTimeout(function() {
-            resultHtml.textContent = "Fyll i båda fälten!"
-            resultHtml.style.color = "red";
-        }, 500); 
-        
+        paraHtml.textContent = "Båda fälten måste fyllas i!";
+        paraHtml.style.color = "red";
     }
-})
 
+})
