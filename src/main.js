@@ -4,27 +4,22 @@ import { Car } from "./modules/Car.js";
 
 const garageHtml = document.querySelector("#garage");
 
-// Tre bilar:
-const car1 = new Car("Ford", "vit", "automat");
-const car2 = new Car("Toyota", "blå", "växellåda");
-const car3 = new Car("Mazda", "beige", "automat");
+const car1 = new Car("Lada", "röd", "automat");
+const car2 = new Car("Yugo", "brun", "växellåda");
+const car3 = new Car("Mercedes", "silver", "automat");
 
-const putCarInGarage = (car) => {
-    // Skapa div
-    const carDiv = document.createElement("div");
-    // Skapa .class "car"
-    carDiv.classList.add("car");
-    // Fyll hela divven med HTML-strängen från carInfo()
-    carDiv.innerHTML = car.carInfo();
-    // Gör så att du kan klicka och skriva "tut" i domen
-    carDiv.addEventListener("click", () => {
-        car.honk()
+const myGarage = (car) => {
+    const carDisplay = document.createElement("div");
+    carDisplay.classList.add("car");
+    carDisplay.innerHTML = car.carInfo();
+
+    carDisplay.addEventListener("click", () => {
+        car.honk();
     })
 
-    // Lägg in hela carDiv i garaget
-    garageHtml.appendChild(carDiv)
+    garageHtml.appendChild(carDisplay);
 }
 
-putCarInGarage(car1);
-putCarInGarage(car2);
-putCarInGarage(car3);
+myGarage(car1);
+myGarage(car2);
+myGarage(car3);

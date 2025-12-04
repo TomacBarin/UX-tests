@@ -7,18 +7,16 @@ export class Car {
         this.transmission = transmission;
     }
 
-    honk() {
-        console.log(`Min ${this.brand} säger: "TUUT TUUT!`)
-    }
-
     carInfo() {
         return `
         <div>
         <h2>${this.brand}</h2>
-        <p>Min ${this.brand} är ${this.color} och ${this.transmission}.</p>
+        <p>Min ${this.brand} är ${this.color} och ${this.transmission}</p>
         </div>
         `
     }
 
-
+    honk() {
+        console.log(`När jag åker i min ${this.brand} så tjuter jag: "TUUT TUUT!`)
+    }
 }
