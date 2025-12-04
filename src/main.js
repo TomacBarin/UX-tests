@@ -10,18 +10,19 @@ const car2 = new Car("Toyota", "blå", "växellåda");
 const car3 = new Car("Mazda", "beige", "automat");
 
 const putCarInGarage = (car) => {
-
-    const createDiv = document.createElement("div");
-    createDiv.innerHTML = car.carInfo();
-
-    const displayCar = createDiv.firstElementChild;
-
-    displayCar.addEventListener("click", () => {
-        car.honk();
+    // Skapa div
+    const carDiv = document.createElement("div");
+    // Skapa .class "car"
+    carDiv.classList.add("car");
+    // Fyll hela divven med HTML-strängen från carInfo()
+    carDiv.innerHTML = car.carInfo();
+    // Gör så att du kan klicka och skriva "tut" i domen
+    carDiv.addEventListener("click", () => {
+        car.honk()
     })
 
-    garageHtml.appendChild(displayCar)
-
+    // Lägg in hela carDiv i garaget
+    garageHtml.appendChild(carDiv)
 }
 
 putCarInGarage(car1);
