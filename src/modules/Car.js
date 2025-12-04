@@ -8,7 +8,7 @@ export class Car {
     }
 
     honk() {
-        console.log(`Min ${this.brand} är ${this.color} och ${this.transmission}.`)
+        console.log(`Min ${this.brand} säger: "TUUT TUUT!`)
     }
 
     carInfo() {
