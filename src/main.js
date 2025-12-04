@@ -1,25 +1,27 @@
 // main.js
 
-import { Car } from "./modules/Car.js";
+import { Monster } from "./modules/Monster.js";
 
-const garageHtml = document.querySelector("#garage");
+const divHtml = document.querySelector("#monsterbok");
 
-const car1 = new Car("Lada", "röd", "automat");
-const car2 = new Car("Yugo", "brun", "växellåda");
-const car3 = new Car("Mercedes", "silver", "automat");
+const monster1 = new Monster("Fritz", "rosa", "tre", "7");
+const monster2 = new Monster("Hasse", "ljusblå", "två", "4");
+const monster3 = new Monster("Milfred", "beige", "sex", "2");
+const monster4 = new Monster("Måns", "vit", "fyra", "9");
 
-const myGarage = (car) => {
-    const carDisplay = document.createElement("div");
-    carDisplay.classList.add("car");
-    carDisplay.innerHTML = car.carInfo();
+const monsterBook = (monster) => {
+    const monsterInfo = document.createElement("div");
+    monsterInfo.classList.add("monster");
+    monsterInfo.innerHTML = monster.getCard();
 
-    carDisplay.addEventListener("click", () => {
-        car.honk();
+    monsterInfo.addEventListener("click", () => {
+        monster.roar();
     })
 
-    garageHtml.appendChild(carDisplay);
+    divHtml.appendChild(monsterInfo);
 }
 
-myGarage(car1);
-myGarage(car2);
-myGarage(car3);
+monsterBook(monster1)
+monsterBook(monster2)
+monsterBook(monster3)
+monsterBook(monster4)
