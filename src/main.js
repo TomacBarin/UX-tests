@@ -10,21 +10,18 @@ const car2 = new Car("Toyota", "blå", "växellåda");
 const car3 = new Car("Mazda", "beige", "automat");
 
 const putCarInGarage = (car) => {
-    // console.log("Jag fick bilen: ", car.brand);
 
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = car.carInfo();
+    const createDiv = document.createElement("div");
+    createDiv.innerHTML = car.carInfo();
 
-    // console.log("Här är hela tempDiv: ", tempDiv)
-    // console.log("Här är det riktiga bilkortet inuti: ", tempDiv.firstElementChild)
+    const displayCar = createDiv.firstElementChild;
 
-    const card = tempDiv.firstElementChild;
-
-    card.addEventListener("click", () => {
+    displayCar.addEventListener("click", () => {
         car.honk();
     })
 
-    garageHtml.appendChild(card)
+    garageHtml.appendChild(displayCar)
+
 }
 
 putCarInGarage(car1);
