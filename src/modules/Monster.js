@@ -15,7 +15,7 @@ export class Monster {
     getCard() {
         return `
         <h2>${this.name}</h2>
-        <p>${this.name} är ${this.color}, har ${this.eyes} antal ögon och lägger på läskighetsnivå ${this.scaryLevel}.</p>
+        <p>${this.name} är ${this.color}, har ${this.eyes} ögon och ligger på läskighetsnivå ${this.scaryLevel}.</p>
         `
         }
         
